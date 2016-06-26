@@ -1,0 +1,26 @@
+{
+    "name": "chadlinden/api",
+    "description": "Example RESTful API",
+    "keywords": ["REST", "API"],
+    "authors": [
+        {
+            "name": "Chad Linden",
+            "email": "chad.linden@gmail.com"
+        }
+    ],
+    "require": {
+        "josegonzalez/dotenv": "^1.2",
+        "equip/framework": "^2.0",
+        "zendframework/zend-diactoros": "^1.0.4",
+        "illuminate/database": "^5.2",
+        "illuminate/pagination": "^5.2"
+    },
+    "require-dev": {
+        
+    },
+    "autoload": {
+        "psr-4": {
+            "ChadLinden\\Api\\": "src"
+        }
+    }
+}
