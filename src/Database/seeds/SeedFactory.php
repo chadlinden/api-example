@@ -5,10 +5,20 @@ use Carbon\Carbon;
 use Faker\Factory;
 use ChadLinden\Api\Models\User;
 use ChadLinden\Api\Models\Shift;
-class SeedFactory 
+
+/**
+ * Class SeedFactory
+ */
+class SeedFactory
 {
+    /**
+     * @var \Faker\Generator
+     */
     private $faker;
 
+    /**
+     * SeedFactory constructor.
+     */
     public function __construct()
     {
         $this->faker = Factory::create();
@@ -100,12 +110,21 @@ class SeedFactory
         return $user;
     }
 
+    /**
+     * @return SeedFactory
+     */
     public function makeManager()
     {
         return $this->addUsers(1, 'manager');
     }
 
-    public function makeEmployee( $withShifts = false)
+    /**
+     * Makes an employee, option to
+     * make shifts w/ valid manager
+     * @param bool $withShifts
+     * @return bool|SeedFactory
+     */
+    public function makeEmployee($withShifts = false)
     {
         return $withShifts == false ?
             $this->addUsers(1, 'employee') :
@@ -114,6 +133,12 @@ class SeedFactory
             );
     }
 
+    /**
+     * @param $number
+     * @param null $forId
+     * @param null $byId
+     * @return bool
+     */
     public function makeShifts($number, $forId = null, $byId = null)
     {
         return $this->addShifts($number, $forId, $byId);

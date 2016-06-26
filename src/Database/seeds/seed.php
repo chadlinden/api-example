@@ -12,6 +12,4 @@ $boot = new ChadLinden\Api\Bootstrap( $injector );
 
 
 $records = 100;
-//SeedFactory::create()->seed($records);
-//SeedFactory::create()->makeEmployee(100);
-SeedFactory::create()->oneTime();
+SeedFactory::create()->seed($records);
