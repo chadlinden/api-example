@@ -55,8 +55,7 @@ class Authenticator
      */
     private function checkLogin($email, $password)
     {
-        $this->user = User::where('email', $email)
-            ->first();
+        $this->user = User::where('email', $email)->first();
         return ( $this->user && $this->checkPassword($password) );
     }
 
@@ -89,7 +88,7 @@ class Authenticator
     public function check( $input, $method )
     {
         // Validate token
-        $token = Token::validate( $input );
+        $token = Token::getInputToken( $input );
 
         if( ! $token->expired() )
         {

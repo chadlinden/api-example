@@ -32,7 +32,7 @@ class Token extends Model
      * @param $input
      * @return mixed
      */
-    public static function validate(array $input)
+    public static function getInputToken(array $input)
     {
         $model = self::where('token', self::extract($input) )->latest()->first();
 
