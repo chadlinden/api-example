@@ -11,7 +11,7 @@ Employee user
 * password: employee
 
 #### To Login ####
-| POST example.com/v1/login or example.com/login |
+`POST example.com/v1/login or POST example.com/login`
 
  Login using email & password 
  Once authenticated you will receive a token to use for each subsequent request.
@@ -31,7 +31,7 @@ Employee user
 | start       | date    | 'Y-m-d H:i:s'     |
 | end         | date    | 'Y-m-d H:i:s'     |  
 
-Example request `example.com/v1/shifts/2069?start=2016-06-20 00:00:00&end=2016-06-30 00:00:00`
+Example request `GET example.com/v1/shifts/2069?start=2016-06-20 00:00:00&end=2016-06-30 00:00:00`
 
 Returns 
 
@@ -119,7 +119,7 @@ Returns
 | ----------- | ------- |  ---------------- |
 | user        | int     | user's id         |
 
-Example request `example.com/v1/user/2069`
+Example request `GET example.com/v1/user/2069`
 
 ```
 {
@@ -164,7 +164,7 @@ Example request `example.com/v1/user/2069`
 The summary shows the shifts since the beginning of the week, with a running tally ( `"cumulative"` ) of the accumulated hours worked.
 
 #### Create new shift ####
-`GET example.com/v1/shift/create`
+`POST example.com/v1/shift/create`
 
 ##### Required input #####
 | input       | type    | description                               |
@@ -174,7 +174,7 @@ The summary shows the shifts since the beginning of the week, with a running tal
 | start_time  | date    | 'Y-m-d H:i:s'                             |
 | end_time    | date    | 'Y-m-d H:i:s'                             |
 
-Example request `example.com/v1/shift/create?employee_id=2069&break=0.5&start_time=2016-06-30 08:30:00&end_time=2016-06-30 18:30:00`
+Example request `POST example.com/v1/shift/create?employee_id=2069&break=0.5&start_time=2016-06-30 08:30:00&end_time=2016-06-30 18:30:00`
 
 ```
 {
@@ -192,7 +192,7 @@ Example request `example.com/v1/shift/create?employee_id=2069&break=0.5&start_ti
 ```
 
 #### Update a shift ####
-`GET example.com/v1/shift/update`
+`PUT example.com/v1/shift/update`
 
 ##### Required input #####
 | input       | type    | description                               |
@@ -208,7 +208,7 @@ You may update any one or all of these keys in a single request
 | start_time  | date    | 'Y-m-d H:i:s'                             |
 | end_time    | date    | 'Y-m-d H:i:s'                             |
 
-Example request `example.com/v1/shift/update?shift_id=615&start_time=2016-06-30 11:30:00`
+Example request `PUT example.com/v1/shift/update?shift_id=615&start_time=2016-06-30 11:30:00`
 
 Response: 
 
