@@ -22,7 +22,7 @@ class Shift extends Model
      * @param array $options
      * @return mixed
      */
-    public static function between(array $options = ['start_time', 'end_time', 'employee_id'])
+    public static function between(array $options )
     {
         extract($options);
         $query = self::where('start_time', '>=', $start_time)
