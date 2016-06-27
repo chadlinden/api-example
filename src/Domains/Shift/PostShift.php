@@ -56,10 +56,7 @@ class PostShift extends Domain implements DomainInterface
         // manager id to create new shift
         $input['manager_id'] = $this->auth->getUser()->id;
 
-        if( Shift::where('employee_id', $input['employee_id'])
-                    ->where('start_time', '>=', $input['start_time'])
-                    ->where('end_time', '<=', $input['end_time'])
-                    ->count() > 0 ){
+        if( Shift::between( $input )->count() > 0 ){
             return $this->respondNotAccepted('employee already schedule during that time');
         }
 
