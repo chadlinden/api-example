@@ -51,7 +51,9 @@ class GetUser extends Domain implements DomainInterface
      */
     public function __invoke(array $input)
     {
-        $this->authorize($input);
+        if( ! $this->authorize( $input ) ){
+            return $this->respondNotAuthorized('invalid or expired token');
+        }
 
         // Validate input
         if( ! $this->validate( $input ) ){

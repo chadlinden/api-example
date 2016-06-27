@@ -22,7 +22,7 @@ class Domain
      * @var
      */
     protected $mutator;
-    
+
     /**
      * Check user's access token
      * @param array $input
@@ -32,8 +32,7 @@ class Domain
     protected function authorize(array $input, $message = 'unauthorized method')
     {
         if( ! $this->auth->check( $input, 'post' ) ){
-            $this->payload = $this->payload->withStatus( Payload::STATUS_UNAUTHORIZED );
-            return $this->payload->withOutput(['error' => $message]);
+            return false;
         }
 
         return true;

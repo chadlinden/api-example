@@ -16,6 +16,25 @@ class Shift extends Model
         'end_time' => 'date'
     ];
 
+    /**
+     * Find shifts between two times with
+     * the option to filter employee_id
+     * @param $startTime
+     * @param $endTime
+     * @param null $employeeID
+     * @return mixed
+     */
+    public function between($startTime, $endTime, $employeeID = null)
+    {
+        $query = self::where('start_time', '>=', $startTime)
+            ->where('end_time', '<=', $endTime);
+        if( $employeeID !== null)
+        {
+            $query->where('employee_id', $employeeID);
+        }
+        return $query->get();
+    }
+
     public function manager()
     {
         return User::where('id', $this->manager_id)->get();
