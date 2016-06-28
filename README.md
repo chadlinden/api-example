@@ -84,7 +84,6 @@ Returns
         "role": "manager",
         "email": "kbernier@yost.com",
         "phone": "+1 (943) 936-8365",
-        "password": null,
         "created_at": "2016-06-24 20:24:01",
         "updated_at": "2016-06-24 20:24:01"
       }
